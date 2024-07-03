@@ -13,7 +13,7 @@ class _TaskTodoState extends State<TaskTodo> {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: todo.length,
       itemBuilder: (context, index) {
         return Padding(
@@ -35,54 +35,54 @@ class _TaskTodoState extends State<TaskTodo> {
                       Row(
                         children: [
                           Text(todo[index]['title'] ?? ''),
-                          SizedBox(width: 10),
+                          const SizedBox(width: 10),
                           Container(
                             width: 50,
                             decoration: BoxDecoration(
                               color: todo[index]['isDone']
-                                  ? Color(0xff69F851)
-                                  : Color(0xff254069),
+                                  ? const Color(0xff69F851)
+                                  : const Color(0xff254069),
                               borderRadius: BorderRadius.circular(15),
                             ),
                             child: Center(
                               child: Text(
                                 todo[index]['isDone'] ? 'Done' : 'To Do',
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 12,
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
-                          SizedBox(width: 10),
+                          const SizedBox(width: 10),
                         ],
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Row(
                         children: [
-                          Icon(Icons.calendar_month),
-                          SizedBox(width: 8),
+                          const Icon(Icons.calendar_month),
+                          const SizedBox(width: 8),
                           Text(todo[index]['date'] ?? ''),
-                          SizedBox(width: 8),
+                          const SizedBox(width: 8),
                           Icon(
                             todo[index]['priority'],
                             size: 20,
                             color: todo[index]['priorityColor'],
                           ),
-                          SizedBox(width: 8),
+                          const SizedBox(width: 8),
                         ],
                       ),
                       Row(
                         children: [
-                          Text('Time Duration: '),
+                          const Text('Time Duration: '),
                           Text(todo[index]['toTime'] ?? ''),
-                          Text(' to '),
+                          const Text(' to '),
                           Text(todo[index]['from'] ?? ''),
                         ],
                       ),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: PopupMenuButton(
@@ -95,17 +95,16 @@ class _TaskTodoState extends State<TaskTodo> {
                               context: context,
                               builder: (BuildContext context) {
                                 String title = todo[index]['title'] ?? '';
-                                String description =
-                                    todo[index]['description'] ?? '';
+                                String description = todo[index]['des'] ?? '';
 
                                 return AlertDialog(
-                                  title: Text('Edit Task'),
+                                  title: const Text('Edit Task'),
                                   content: SingleChildScrollView(
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text('Title'),
+                                        const Text('Title'),
                                         TextField(
                                           controller: TextEditingController(
                                               text: title),
@@ -115,8 +114,8 @@ class _TaskTodoState extends State<TaskTodo> {
                                             });
                                           },
                                         ),
-                                        SizedBox(height: 10),
-                                        Text('Description'),
+                                        const SizedBox(height: 10),
+                                        const Text('Description'),
                                         TextField(
                                           controller: TextEditingController(
                                               text: description),
@@ -126,7 +125,7 @@ class _TaskTodoState extends State<TaskTodo> {
                                             });
                                           },
                                         ),
-                                        SizedBox(height: 10),
+                                        const SizedBox(height: 10),
                                       ],
                                     ),
                                   ),
@@ -135,7 +134,7 @@ class _TaskTodoState extends State<TaskTodo> {
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
-                                      child: Text('Cancel'),
+                                      child: const Text('Cancel'),
                                     ),
                                     ElevatedButton(
                                       onPressed: () {
@@ -145,7 +144,7 @@ class _TaskTodoState extends State<TaskTodo> {
                                         });
                                         Navigator.pop(context);
                                       },
-                                      child: Text('Save'),
+                                      child: const Text('Save'),
                                     ),
                                   ],
                                 );
@@ -158,14 +157,14 @@ class _TaskTodoState extends State<TaskTodo> {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return AlertDialog(
-                                      title: Text("Description"),
+                                      title: const Text("Description"),
                                       content: Text(todo[index]['des']),
                                       actions: [
                                         TextButton(
                                             onPressed: () {
                                               Navigator.pop(context);
                                             },
-                                            child: Text('Ok'))
+                                            child: const Text('Ok'))
                                       ]);
                                 });
                           }
@@ -174,19 +173,31 @@ class _TaskTodoState extends State<TaskTodo> {
                       itemBuilder: (context) {
                         return [
                           PopupMenuItem(
-                            child:
-                                Text(todo[index]['isDone'] ? 'Undone' : 'Done'),
                             value: 'isDone',
+                            child: todo[index]['isDone']
+                                ? const Row(
+                                    children: [
+                                      Text('Done'),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Icon(
+                                        Icons.check,
+                                        size: 20,
+                                      )
+                                    ],
+                                  )
+                                : const Text('Done'),
                           ),
-                          PopupMenuItem(
+                          const PopupMenuItem(
                             child: Text('Edit'),
                             value: 'Edit',
                           ),
-                          PopupMenuItem(
+                          const PopupMenuItem(
                             child: Text('Delete'),
                             value: 'Delete',
                           ),
-                          PopupMenuItem(
+                          const PopupMenuItem(
                             child: Text('Description'),
                             value: 'Des',
                           ),
