@@ -4,9 +4,9 @@
 
 
 ## Features
-Minimalistic Interface: Clean and intuitive design focused on your tasks.
-Add and Remove Tasks: Easily add new tasks and remove them when they're done.
-Check Off Completed Tasks: Mark tasks as completed with a simple tap.
+- Minimalistic Interface: Clean and intuitive design focused on your tasks.
+- Add and Remove Tasks: Easily add new tasks and remove them when they're done.
+- Check Off Completed Tasks: Mark tasks as completed with a simple tap.
 
 ## Preview
 https://github.com/AsherAyub80/flutter_assigment/assets/161920870/6a40f948-2375-4dde-a9f4-72da3c1ae2f7
