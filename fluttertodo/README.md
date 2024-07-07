@@ -12,6 +12,6 @@
 https://github.com/AsherAyub80/flutter_assigment/assets/161920870/6a40f948-2375-4dde-a9f4-72da3c1ae2f7
 
 ### Connect with me
-- [Asher Ayub](https://github.com/AsherAyub80)
+- Github: [Asher Ayub](https://github.com/AsherAyub80)
 - LinkedIn: [Asher Ayub](https://www.linkedin.com/in/asher-ayub-39b376245/)
 
